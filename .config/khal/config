@@ -1,0 +1,30 @@
+[default]
+highlight_event_days = true
+show_all_days = true
+
+[calendars]
+
+[[ant.lvov@gmail.com birthdays]]
+path = ~/.calendars/antlvov/4dhmurjkc5hn8sq0ctp6utbg5pr2sor1dhimsp31e8n6errfctm6abj3dtmg@virtual/ 
+
+[[ant.lvov@gmail.com]]
+path = ~/.calendars/antlvov/ant.lvov@gmail.com/
+
+[[ant.lvov@gmail.com holidays in Russia]]
+path = ~/.calendars/antlvov/cln2ssjledpmiobe4dk6ur39chgnig37e9nnas1eeon66obccln68obi5pjmurr7dhiisorfdk@virtual/
+
+[[anton@rrsoft.co personal]]
+path = ~/.calendars/rrsoft/anton@rrsoft.co/
+
+[[anton@rrsoft.co RRSoft team]]
+path = ~/.calendars/rrsoft/rrsoft.co_rncircg6dbb5sa6qu5edkq1v8o@group.calendar.google.com/
+
+[locale]
+timeformat = %H:%M
+dateformat = %Y-%m-%d
+longdateformat = %Y-%m-%d
+datetimeformat = %Y-%m-%d %H:%M
+longdatetimeformat = %Y-%m-%d %H:%M
+
+[view]
+agenda_event_format = {blue}{calendar}{calendar-color}{cancelled}{start-end-time-style} {title}{repeat-symbol}{description-separator}{description}{reset}

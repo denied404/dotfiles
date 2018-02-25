@@ -1,0 +1,36 @@
+[general]
+status_path = "~/.vdirsyncer/status/"
+
+[pair antlvov]
+a = "antlvov_local"
+b = "antlvov_remote"
+collections = ["from a", "from b"]
+
+[storage antlvov_local]
+type = "filesystem"
+path = "~/.calendars/antlvov/"
+fileext = ".ics"
+
+[storage antlvov_remote]
+type = "google_calendar"
+token_file = "~/.vdirsyncer/tokens/antvov"
+client_id = %place_your_client_id_here%
+client_secret = %place_your_client_secret_here%
+item_types = []
+
+[pair rrsoft]
+a = "rrsoft_local"
+b = "rrsoft_remote"
+collections = ["from a", "from b"]
+
+[storage rrsoft_local]
+type = "filesystem"
+path = "~/.calendars/rrsoft/"
+fileext = ".ics"
+
+[storage rrsoft_remote]
+type = "google_calendar"
+token_file = "~/.vdirsyncer/tokens/rrsoft"
+client_id = %place_your_client_id_here%
+client_secret = %place_your_client_secret_here%
+item_types = []
