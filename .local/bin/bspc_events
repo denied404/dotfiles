@@ -1,0 +1,54 @@
+#!/bin/bash
+LAP_ID=$(bspc query -M -m "$LAP")
+
+function restart_bar(){
+  killall -q polybar
+  while pgrep -x polybar  >/dev/null; do sleep 1; done
+  MONITOR=$1 polybar top 2> /dev/null &
+  if [[ $2 ]]; then
+    MONITOR=$2 polybar top 2> /dev/null &
+  fi
+}
+
+function remove_monitor() {
+  bspc desktop VI -m "$LAP" 
+  bspc desktop VII -m "$LAP"
+  bspc desktop VIII -m "$LAP"
+  bspc desktop IX -m "$LAP"
+  bspc desktop X -m "$LAP"
+  bspc monitor "$LAP" -d I II III IV V VI VII VIII IX X
+
+  # ------------------------------
+  # At the moment I use one bar 
+  # on the laptop screen
+  # ------------------------------
+  # restart_bar "$LAP"
+}
+
+function change_monitor_order(){
+  if [[ ! $(bspc query -M --names | head -n 1) == "$LAP" ]]; then
+    bspc monitor $LAP -s $1 
+  fi
+}
+
+function add_monitor(){
+  sleep 1
+  bspc monitor "$LAP" -d I II III IV V
+  bspc monitor "$MON" -d VI VII VIII IX X
+  change_monitor_order $MON
+
+  # ------------------------------
+  # At the moment I use one bar 
+  # on the laptop screen
+  # ------------------------------
+  # restart_bar "$LAP" "$MON"
+}
+
+while read event MON_ID MON tmp; do
+  if [[ $event == "monitor_remove" ]]; then
+    remove_monitor
+  elif [[ $event == "monitor_add" ]]; then
+    add_monitor
+  fi
+  bash ~/.fehbg
+done < <(bspc subscribe monitor_remove monitor_add)

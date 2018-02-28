@@ -139,5 +139,5 @@ ctrl + space
   {setxkbmap ru, setxkbmap us}
 
 # Lock screen (lightdm)
-super + l
-  dm-tool lock
+ctrl + grave
+  dm-tool lock 

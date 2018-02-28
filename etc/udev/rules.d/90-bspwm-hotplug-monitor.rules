@@ -1,0 +1,1 @@
+KERNEL=="card0", SUBSYSTEM=="drm", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/denied/.Xauthority", RUN+="/usr/local/bin/bspwm-xrandr.sh"
